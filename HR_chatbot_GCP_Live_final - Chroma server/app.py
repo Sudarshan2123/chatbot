@@ -21,7 +21,7 @@ from src.utils.common import decrypt_credentials
 
 # logging.getLogger().setLevel(logging.DEBUG)
 os.environ["LANGCHAIN_TRACING_V2"] = "true"
-os.environ["LANGCHAIN_API_KEY"] = "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"
+# os.environ["LANGCHAIN_API_KEY"] = "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"
 routes = APIRouter()
 config = Config()
 history_page_instance = HistoryPage(config)

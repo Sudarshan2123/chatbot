@@ -25,7 +25,7 @@ from starlette_csrf import CSRFMiddleware
 
 # logging.getLogger().setLevel(logging.DEBUG)
 os.environ["LANGCHAIN_TRACING_V2"] = "true"
-os.environ["LANGCHAIN_API_KEY"] = "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"
+# os.environ["LANGCHAIN_API_KEY"] = "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"
 routes = APIRouter()
 config = Config()
 global default_connection_data
