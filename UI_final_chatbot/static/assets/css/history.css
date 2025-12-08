@@ -1,0 +1,27 @@
+   #chat-history-container {
+        display: flex;
+        flex-direction: column;
+        max-height: 240px;
+        overflow: auto; /* Make the container scrollable if needed */
+    }
+    .message {
+        margin-bottom: 8px;
+        padding: 8px;
+        border-radius: 5px;
+        font-size: 0.9rem;
+    }
+    .user {
+        background-color: #ffe4bb; /* Light cyan for user messages */
+        align-self: flex-end; /* Align user messages to the right */
+    }
+    .Ai {
+        background-color: #fff4ea; /* Light gray for assistant messages */
+        align-self: flex-start; /* Align assistant messages to the left */
+    }
+    /* Style the "View More" button to be centered */
+    #kt_aside_secondary_footer {
+        display: flex;
+        justify-content: center;
+        padding-top: 15px;
+    }
+    

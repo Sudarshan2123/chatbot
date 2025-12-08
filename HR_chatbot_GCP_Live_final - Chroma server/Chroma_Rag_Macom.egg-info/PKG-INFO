@@ -1,0 +1,20 @@
+Metadata-Version: 2.4
+Name: Chroma-Rag-Macom
+Version: 0.0.1
+Summary: Gen AI project
+Author: Sachin T S
+Author-email: sachin.ts@macomsolutions.com
+Requires-Dist: langchain_community
+Requires-Dist: langchain_chroma
+Requires-Dist: chromadb
+Requires-Dist: cryptography
+Requires-Dist: python-box
+Requires-Dist: ensure
+Requires-Dist: pytz
+Requires-Dist: pyjwt
+Requires-Dist: langchain_mongodb
+Requires-Dist: langchain_google_vertexai
+Dynamic: author
+Dynamic: author-email
+Dynamic: requires-dist
+Dynamic: summary

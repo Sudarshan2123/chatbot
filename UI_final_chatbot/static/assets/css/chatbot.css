@@ -1,0 +1,112 @@
+﻿
+.content {
+    background: #FFF4EA;
+}
+
+.card-header {
+    background-color: #FFE4BB!important;
+}
+
+.chatbot-container {
+    background-color: #FFF4EA
+}
+.chatbox-messages {
+    border: 1px solid #f5f8fa;
+    border-radius: 6px;
+    min-height: 200px;
+    max-height: 300px;
+    overflow: auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.chatbox-button{
+width: 40px; height: 40px;
+
+
+color: white;
+justify-content: center;
+display: flex
+;
+vertical-align: -webkit-baseline-middle;
+margin: auto;
+padding: 10px;
+}
+
+.chatbox {
+    border: 1px solid #bbb5b5b0;
+    min-height: 60px;
+    max-height: 300px;
+    border-radius: 12px;
+}
+.btn-chatbox-audio {
+    background:transparent;
+    width:50px;
+    height:50px;
+    border:none;
+    border-radius:50%;
+    margin:auto;
+    transition:all 0.3s ease;
+}
+    .btn-chatbox-audio:hover {
+        background: #ffe4bb;
+    }
+.chatbox-msgitem-snd {
+    background: #fbe4bd;
+    padding: 8px;
+    position: relative;
+    float: right;
+    margin-left: auto;
+    height: fit-content;
+    width: fit-content !important;
+    border-radius: 12px 0px 12px 12px;
+}
+.chatbox-msgitem-rcv {
+    background: #fff3e6;
+    padding: 8px;
+    height: fit-content;
+    width: fit-content !important;
+    border-radius: 0px 12px 12px 12px;
+}
+
+.footer {
+    background: #ffe4bb;
+}
+
+.chatbox-loading {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    }
+    
+.chatbox-loading .dot {
+    background-color: #a1a5b7;
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+    margin: 0 4px;
+    animation: bounce 1.5s infinite ease-in-out;
+    }
+    
+.chatbox-loading .dot:nth-child(1) {
+    animation-delay: 0s;
+    }
+    
+.chatbox-loading .dot:nth-child(2) {
+    animation-delay: 0.2s;
+    }
+    
+.chatbox-loading .dot:nth-child(3) {
+    animation-delay: 0.4s;
+    }
+    
+    @keyframes bounce {
+    0%, 80%, 100% { 
+        transform: scale(0);
+    } 
+    40% { 
+        transform: scale(1.0);
+    }
+    }
+
+

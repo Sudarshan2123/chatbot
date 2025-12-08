@@ -1,0 +1,39 @@
+
+html {
+
+      background-image: url(./bg.jpeg); background-position:center; background-repeat: no-repeat; background-size: cover;
+      
+}
+
+body {
+      background: transparent;
+      min-height:100vh;
+      backdrop-filter: brightness(0.5);
+      
+}
+.btn {
+
+    border-color: #e95a03;
+  }
+  a {
+
+     color: #e95a03;
+     text-decoration: none;
+  }
+  
+  .btn-chatbot-login {
+background-color: #e95a03 !important;
+border: 1px solid #fff !important;
+color: #ffffff !important;
+-webkit-box-shadow: 0 3px 5px 0 rgba(47, 85, 212, 0.3);
+      box-shadow: 0 3px 5px 0 rgba(47, 85, 212, 0.3);
+}
+
+.btn-chatbot-login:hover, .btn-chatbot-login:focus, .btn-chatbot-login:active, .btn-chatbot-login.active, .btn-chatbot-login.focus {
+background-color: #f38a10 !important;
+border-color: #fff !important;
+color: #ffffff !important;
+}
+
+
+

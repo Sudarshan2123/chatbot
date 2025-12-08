@@ -1,0 +1,1024 @@
+/* Dark Mode Styles - Improved Color Scheme */
+[data-theme="dark"] {
+    --bg-primary: #0f1419;
+    --bg-secondary: #1a1f29;
+    --bg-tertiary: #252b37;
+    --bg-quaternary: #2f3441;
+    --text-primary: #e6e6e6;
+    --text-secondary: #a0a6b8;
+    --text-muted: #6b7280;
+    --border-color: #374151;
+    --border-light: #4b5563;
+    --accent-primary: #3b82f6;
+    --accent-secondary: #1d4ed8;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --shadow: rgba(0, 0, 0, 0.5);
+}
+
+/* Body and main containers */
+[data-theme="dark"] body {
+    background-color: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .page {
+    background-color: var(--bg-primary) !important;
+}
+
+[data-theme="dark"] #kt_body {
+    background-color: var(--bg-primary) !important;
+}
+
+/* Aside/Sidebar */
+[data-theme="dark"] .aside {
+    background-color: var(--bg-secondary) !important;
+    border-right: 1px solid var(--border-color) !important;
+}
+
+[data-theme="dark"] .aside-primary {
+    background-color: var(--bg-secondary) !important;
+}
+
+[data-theme="dark"] .aside-secondary {
+    background-color: var(--bg-tertiary) !important;
+}
+
+[data-theme="dark"] .aside-workspace {
+    background-color: var(--bg-tertiary) !important;
+}
+
+/* Cards */
+[data-theme="dark"] .card {
+    background-color: var(--bg-secondary) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .card-body {
+    background-color: var(--bg-secondary) !important;
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .card-header {
+    background-color: var(--bg-tertiary) !important;
+    border-bottom: 1px solid var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Forms and inputs */
+[data-theme="dark"] .form-control {
+    background-color: var(--bg-quaternary) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .form-control:focus {
+    background-color: var(--bg-quaternary) !important;
+    border-color: var(--accent-primary) !important;
+    color: var(--text-primary) !important;
+    box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.25) !important;
+}
+
+[data-theme="dark"] .form-control::placeholder {
+    color: var(--text-muted) !important;
+}
+
+/* Buttons */
+[data-theme="dark"] .btn {
+    border: 1px solid var(--border-color) !important;
+}
+
+[data-theme="dark"] .btn-primary {
+    background-color: var(--accent-primary) !important;
+    border-color: var(--accent-primary) !important;
+    color: white !important;
+}
+
+[data-theme="dark"] .btn-primary:hover {
+    background-color: var(--accent-secondary) !important;
+    border-color: var(--accent-secondary) !important;
+}
+
+[data-theme="dark"] .btn-secondary {
+    background-color: var(--bg-quaternary) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .btn-secondary:hover {
+    background-color: var(--bg-tertiary) !important;
+}
+
+/* Chat specific styles */
+[data-theme="dark"] .chatbox {
+    background-color: var(--bg-secondary) !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+[data-theme="dark"] .chatbox-messages {
+    background-color: var(--bg-primary) !important;
+}
+
+[data-theme="dark"] .chatbox-msgitem-snd,
+[data-theme="dark"] .chatbox-msgitem-user {
+    background-color: var(--accent-primary) !important;
+    color: white !important;
+}
+
+[data-theme="dark"] .chatbox-msgitem-rcv,
+[data-theme="dark"] .chatbox-msgitem-ai {
+    background-color: var(--bg-quaternary) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+/* Headers and toolbars */
+[data-theme="dark"] .header {
+    background-color: var(--bg-secondary) !important;
+    border-bottom: 1px solid var(--border-color) !important;
+}
+
+[data-theme="dark"] .toolbar {
+    background-color: var(--bg-secondary) !important;
+    border-bottom: 1px solid var(--border-color) !important;
+}
+
+/* Modals */
+[data-theme="dark"] .modal-content {
+    background-color: var(--bg-secondary) !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+[data-theme="dark"] .modal-header {
+    background-color: var(--bg-tertiary) !important;
+    border-bottom: 1px solid var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .modal-body {
+    background-color: var(--bg-secondary) !important;
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .modal-footer {
+    background-color: var(--bg-tertiary) !important;
+    border-top: 1px solid var(--border-color) !important;
+}
+
+[data-theme="dark"] .modal-title {
+    color: var(--text-primary) !important;
+}
+
+/* Alerts */
+[data-theme="dark"] .alert {
+    border: 1px solid var(--border-color) !important;
+}
+
+[data-theme="dark"] .alert-info {
+    background-color: rgba(59, 130, 246, 0.1) !important;
+    border-color: rgba(59, 130, 246, 0.3) !important;
+    color: #60a5fa !important;
+}
+
+[data-theme="dark"] .alert-danger {
+    background-color: rgba(239, 68, 68, 0.1) !important;
+    border-color: rgba(239, 68, 68, 0.3) !important;
+    color: #f87171 !important;
+}
+
+[data-theme="dark"] .alert-success {
+    background-color: rgba(16, 185, 129, 0.1) !important;
+    border-color: rgba(16, 185, 129, 0.3) !important;
+    color: #34d399 !important;
+}
+
+[data-theme="dark"] .alert-warning {
+    background-color: rgba(245, 158, 11, 0.1) !important;
+    border-color: rgba(245, 158, 11, 0.3) !important;
+    color: #fbbf24 !important;
+}
+
+/* Text colors */
+[data-theme="dark"] .text-muted {
+    color: var(--text-muted) !important;
+}
+
+[data-theme="dark"] .text-dark {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .text-gray-600 {
+    color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .text-gray-800 {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .fw-bolder,
+[data-theme="dark"] .fw-bold {
+    color: var(--text-primary) !important;
+}
+
+/* Menus and dropdowns */
+[data-theme="dark"] .menu {
+    background-color: var(--bg-secondary) !important;
+    border: 1px solid var(--border-color) !important;
+    box-shadow: 0 4px 6px var(--shadow) !important;
+}
+
+[data-theme="dark"] .menu-item .menu-link {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .menu-item .menu-link:hover {
+    background-color: var(--bg-tertiary) !important;
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .menu-content {
+    color: var(--text-primary) !important;
+}
+
+/* Separators */
+[data-theme="dark"] .separator {
+    border-color: var(--border-color) !important;
+}
+
+/* Symbols and avatars */
+[data-theme="dark"] .symbol {
+    border: 1px solid var(--border-color) !important;
+}
+
+/* Badges */
+[data-theme="dark"] .badge {
+    background-color: var(--bg-quaternary) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+[data-theme="dark"] .badge-light-success {
+    background-color: rgba(16, 185, 129, 0.2) !important;
+    color: var(--success) !important;
+}
+
+/* SVG Icons */
+[data-theme="dark"] .svg-icon {
+    fill: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .btn .svg-icon {
+    fill: currentColor !important;
+}
+
+/* Scrollbars */
+[data-theme="dark"] ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+    background: var(--bg-quaternary);
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+    background: var(--border-light);
+}
+
+/* Loading indicators */
+[data-theme="dark"] .spinner-border {
+    color: var(--accent-primary) !important;
+}
+
+[data-theme="dark"] .chatbox-loading {
+    background-color: var(--bg-tertiary) !important;
+}
+
+/* Form switches */
+[data-theme="dark"] .form-check-input {
+    background-color: var(--bg-quaternary) !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+[data-theme="dark"] .form-check-input:checked {
+    background-color: var(--accent-primary) !important;
+    border-color: var(--accent-primary) !important;
+}
+
+[data-theme="dark"] .form-check-label {
+    color: var(--text-secondary) !important;
+}
+
+/* Comprehensive overrides for stubborn elements */
+[data-theme="dark"] * {
+    border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] div,
+[data-theme="dark"] span,
+[data-theme="dark"] p,
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6,
+[data-theme="dark"] label,
+[data-theme="dark"] a {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .bg-white {
+    background-color: var(--bg-secondary) !important;
+}
+
+[data-theme="dark"] .bg-light {
+    background-color: var(--bg-tertiary) !important;
+}
+
+[data-theme="dark"] .bg-gray-100 {
+    background-color: var(--bg-tertiary) !important;
+}
+
+[data-theme="dark"] .text-white {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .border {
+    border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .border-top,
+[data-theme="dark"] .border-bottom,
+[data-theme="dark"] .border-left,
+[data-theme="dark"] .border-right {
+    border-color: var(--border-color) !important;
+}
+
+/* Specific framework overrides */
+[data-theme="dark"] .d-flex,
+[data-theme="dark"] .flex-column,
+[data-theme="dark"] .flex-row {
+    background-color: inherit !important;
+}
+
+[data-theme="dark"] .container,
+[data-theme="dark"] .container-fluid {
+    background-color: var(--bg-primary) !important;
+}
+
+[data-theme="dark"] .row,
+[data-theme="dark"] .col,
+[data-theme="dark"] [class*="col-"] {
+    background-color: inherit !important;
+}
+
+/* Navigation and menu items */
+[data-theme="dark"] .nav,
+[data-theme="dark"] .navbar {
+    background-color: var(--bg-secondary) !important;
+}
+
+[data-theme="dark"] .nav-link {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .nav-link:hover {
+    color: var(--accent-primary) !important;
+}
+
+/* Tables */
+[data-theme="dark"] .table {
+    background-color: var(--bg-secondary) !important;
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .table th,
+[data-theme="dark"] .table td {
+    border-color: var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Lists */
+[data-theme="dark"] .list-group {
+    background-color: var(--bg-secondary) !important;
+}
+
+[data-theme="dark"] .list-group-item {
+    background-color: var(--bg-tertiary) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Tooltips and popovers */
+[data-theme="dark"] .tooltip {
+    background-color: var(--bg-quaternary) !important;
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .popover {
+    background-color: var(--bg-secondary) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Progress bars */
+[data-theme="dark"] .progress {
+    background-color: var(--bg-tertiary) !important;
+}
+
+[data-theme="dark"] .progress-bar {
+    background-color: var(--accent-primary) !important;
+}
+
+/* Breadcrumbs */
+[data-theme="dark"] .breadcrumb {
+    background-color: var(--bg-tertiary) !important;
+}
+
+[data-theme="dark"] .breadcrumb-item {
+    color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .breadcrumb-item.active {
+    color: var(--text-primary) !important;
+}
+
+/* Pagination */
+[data-theme="dark"] .pagination .page-link {
+    background-color: var(--bg-tertiary) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .pagination .page-link:hover {
+    background-color: var(--bg-quaternary) !important;
+}
+
+/* Custom chat elements */
+[data-theme="dark"] .chatbox-header {
+    background-color: var(--bg-secondary) !important;
+    border-bottom: 1px solid var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .chatbox-footer {
+    background-color: var(--bg-secondary) !important;
+    border-top: 1px solid var(--border-color) !important;
+}
+
+[data-theme="dark"] .message {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .message.user {
+    background-color: var(--accent-primary) !important;
+    color: white !important;
+}
+
+[data-theme="dark"] .message.ai {
+    background-color: var(--bg-quaternary) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Override any remaining white backgrounds */
+[data-theme="dark"] [style*="background-color: white"],
+[data-theme="dark"] [style*="background-color: #fff"],
+[data-theme="dark"] [style*="background-color: #ffffff"] {
+    background-color: var(--bg-secondary) !important;
+}
+
+/* Override any remaining black text */
+[data-theme="dark"] [style*="color: black"],
+[data-theme="dark"] [style*="color: #000"],
+[data-theme="dark"] [style*="color: #000000"] {
+    color: var(--text-primary) !important;
+}
+
+/* Force all text to be light in dark mode */
+[data-theme="dark"] .text-black {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .bg-primary {
+    background-color: var(--accent-primary) !important;
+}
+
+[data-theme="dark"] .bg-secondary {
+    background-color: var(--bg-secondary) !important;
+}
+
+[data-theme="dark"] .bg-success {
+    background-color: var(--success) !important;
+}
+
+[data-theme="dark"] .bg-danger {
+    background-color: var(--danger) !important;
+}
+
+[data-theme="dark"] .bg-warning {
+    background-color: var(--warning) !important;
+}
+
+[data-theme="dark"] .bg-info {
+    background-color: var(--accent-primary) !important;
+}
+
+/* Specific content area styling */
+[data-theme="dark"] .content {
+    background-color: var(--bg-primary) !important;
+}
+
+[data-theme="dark"] #kt_content {
+    background-color: var(--bg-primary) !important;
+}
+
+[data-theme="dark"] .container-xxl,
+[data-theme="dark"] .chatbot-container {
+    background-color: var(--bg-primary) !important;
+}
+
+[data-theme="dark"] #kt_content_container {
+    background-color: var(--bg-primary) !important;
+}
+
+/* Card header specific styling */
+[data-theme="dark"] .card-header {
+    background-color: var(--bg-secondary) !important;
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .card-title {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .card-label {
+    color: var(--text-primary) !important;
+}
+
+/* Select2 dropdown styling */
+[data-theme="dark"] .select2-container {
+    background-color: var(--bg-quaternary) !important;
+}
+
+[data-theme="dark"] .select2-selection {
+    background-color: var(--bg-quaternary) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .select2-selection__rendered {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .select2-dropdown {
+    background-color: var(--bg-secondary) !important;
+    border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .select2-results__option {
+    background-color: var(--bg-secondary) !important;
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .select2-results__option:hover {
+    background-color: var(--bg-tertiary) !important;
+}
+
+/* Chat message styling - AI messages in light blue */
+[data-theme="dark"] .chatbox-msgitem-rcv,
+[data-theme="dark"] .chatbox-msgitem-ai {
+    background-color: #60a5fa !important;
+    color: #1e293b !important;
+    border: 1px solid #3b82f6 !important;
+    padding: 8px 12px !important;
+    border-radius: 8px !important;
+    margin: 4px 0 !important;
+    display: block !important;
+}
+
+/* User messages with blue background and border */
+[data-theme="dark"] .chatbox-msgitem-snd,
+[data-theme="dark"] .chatbox-msgitem-user {
+    background-color: var(--accent-primary) !important;
+    color: white !important;
+    border: 2px solid #1d4ed8 !important;
+    padding: 8px 12px !important;
+    border-radius: 8px !important;
+    margin: 4px 0 !important;
+    display: block !important;
+    box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3) !important;
+}
+
+/* Form control in chatbox */
+[data-theme="dark"] .chatbox .form-control {
+    background-color: var(--bg-quaternary) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Microphone button */
+[data-theme="dark"] .btn-chatbox-audio {
+    background-color: var(--bg-quaternary) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+[data-theme="dark"] .btn-chatbox-audio:hover {
+    background-color: var(--bg-tertiary) !important;
+}
+
+/* Font Awesome icons */
+[data-theme="dark"] .fa,
+[data-theme="dark"] .fas,
+[data-theme="dark"] .far,
+[data-theme="dark"] .fab {
+    color: var(--text-primary) !important;
+}
+
+/* Flex containers */
+[data-theme="dark"] .flex-row-fluid {
+    background-color: inherit !important;
+}
+
+/* Form styling */
+[data-theme="dark"] .form {
+    background-color: inherit !important;
+}
+
+[data-theme="dark"] .fv-row {
+    background-color: inherit !important;
+}
+
+/* Chart and widget specific styling */
+[data-theme="dark"] .card.card-xl-stretch {
+    background-color: var(--bg-secondary) !important;
+}
+
+[data-theme="dark"] .card.mb-5,
+[data-theme="dark"] .card.mb-xl-8 {
+    background-color: var(--bg-secondary) !important;
+}
+
+/* Content blocks and chart areas */
+[data-theme="dark"] .card-body.d-flex {
+    background-color: var(--bg-secondary) !important;
+}
+
+[data-theme="dark"] .card-body.pb-0 {
+    background-color: var(--bg-secondary) !important;
+}
+
+/* Row and column containers */
+[data-theme="dark"] .row.gy-5 {
+    background-color: var(--bg-primary) !important;
+}
+
+[data-theme="dark"] .col-xl-12 {
+    background-color: var(--bg-primary) !important;
+}
+
+/* Chart widget containers */
+[data-theme="dark"] .card-body.d-flex.align-items-end {
+    background-color: var(--bg-secondary) !important;
+}
+
+[data-theme="dark"] .card-body.px-5 {
+    background-color: var(--bg-secondary) !important;
+}
+
+/* Stepper content */
+[data-theme="dark"] [data-kt-stepper-element="content"] {
+    background-color: inherit !important;
+}
+
+[data-theme="dark"] .current {
+    background-color: inherit !important;
+}
+
+/* Widget and chart backgrounds */
+[data-theme="dark"] .w-100 {
+    background-color: inherit !important;
+}
+
+/* Padding containers */
+[data-theme="dark"] .py-lg-5,
+[data-theme="dark"] .px-lg-15 {
+    background-color: inherit !important;
+}
+
+/* All div elements in cards */
+[data-theme="dark"] .card div {
+    background-color: inherit !important;
+}
+
+/* Specific chart widget class */
+[data-theme="dark"] .card:has(.chatbox) {
+    background-color: var(--bg-secondary) !important;
+}
+
+/* Force all card elements */
+[data-theme="dark"] .card * {
+    background-color: inherit !important;
+}
+
+/* Override any remaining light backgrounds */
+[data-theme="dark"] .bg-body,
+[data-theme="dark"] .bg-light-primary,
+[data-theme="dark"] .bg-light-secondary {
+    background-color: var(--bg-secondary) !important;
+}
+
+/* Fix message text visibility */
+[data-theme="dark"] .chatbox-messages span {
+    color: inherit !important;
+}
+
+[data-theme="dark"] .chatbox-msgitem-rcv {
+    background-color: #60a5fa !important;
+    color: #1e293b !important;
+    border: 1px solid #3b82f6 !important;
+}
+
+[data-theme="dark"] .chatbox-msgitem-snd {
+    background-color: var(--accent-primary) !important;
+    color: white !important;
+    border: 2px solid #1d4ed8 !important;
+}
+
+[data-theme="dark"] .chatbox-msgitem-user {
+    background-color: var(--accent-primary) !important;
+    color: white !important;
+    border: 2px solid #1d4ed8 !important;
+}
+
+[data-theme="dark"] .chatbox-msgitem-ai {
+    background-color: #60a5fa !important;
+    color: #1e293b !important;
+    border: 1px solid #3b82f6 !important;
+}
+
+/* Force all message text to be visible */
+[data-theme="dark"] .chatbox-messages * {
+    color: inherit !important;
+}
+
+/* Override any black text in messages */
+[data-theme="dark"] .chatbox span[style*="color: black"],
+[data-theme="dark"] .chatbox span[style*="color: #000"],
+[data-theme="dark"] .chatbox div[style*="color: black"],
+[data-theme="dark"] .chatbox div[style*="color: #000"] {
+    color: inherit !important;
+}
+
+/* Force correct colors for message types */
+[data-theme="dark"] .chatbox-msgitem-snd {
+    color: #f1f5f9 !important;
+    background-color: #3b82f6 !important;
+    border: 2px solid #1e40af !important;
+    border-radius: 12px !important;
+    padding: 10px 14px !important;
+    margin: 6px 0 !important;
+    display: inline-block !important;
+}
+
+[data-theme="dark"] .chatbox-msgitem-snd *,
+[data-theme="dark"] .chatbox-msgitem-user,
+[data-theme="dark"] .chatbox-msgitem-user * {
+    color: #f1f5f9 !important;
+    background-color: #3b82f6 !important;
+}
+
+/* Direct override for div elements */
+[data-theme="dark"] div.chatbox-msgitem-snd {
+    color: #f1f5f9 !important;
+    background-color: #3b82f6 !important;
+}
+
+/* Aggressive override for chatbox-msgitem-snd */
+[data-theme="dark"] .chatbox-msgitem-snd.mb-2,
+[data-theme="dark"] div.chatbox-msgitem-snd.mb-2 {
+    background: #3b82f6 !important;
+    background-color: #3b82f6 !important;
+    color: #f1f5f9 !important;
+    border: 2px solid #1e40af !important;
+    border-radius: 8px !important;
+    padding: 8px 12px !important;
+    margin: 4px 0 4px auto !important;
+    display: block !important;
+    text-align: right !important;
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    max-width: 70% !important;
+    width: fit-content !important;
+}
+
+/* Override any Bootstrap or framework styles */
+[data-theme="dark"] .chatbox .chatbox-msgitem-snd {
+    background: #3b82f6 !important;
+    color: #f1f5f9 !important;
+}
+
+/* Force override with highest specificity */
+body[data-theme="dark"] .chatbox-messages .chatbox-msgitem-snd {
+    background: #3b82f6 !important;
+    background-color: #3b82f6 !important;
+    color: #f1f5f9 !important;
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    text-align: right !important;
+    display: block !important;
+    width: fit-content !important;
+    max-width: 70% !important;
+}
+
+/* Also apply to light mode */
+.chatbox-msgitem-snd,
+div.chatbox-msgitem-snd {
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    text-align: right !important;
+    display: block !important;
+    width: fit-content !important;
+    max-width: 70% !important;
+}
+
+/* AI responses on left side */
+.chatbox-msgitem-rcv,
+div.chatbox-msgitem-rcv,
+.chatbox-msgitem-ai,
+div.chatbox-msgitem-ai {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+    text-align: left !important;
+    display: block !important;
+    width: fit-content !important;
+    max-width: 70% !important;
+}
+
+/* Dark mode AI responses on left */
+[data-theme="dark"] .chatbox-msgitem-rcv,
+[data-theme="dark"] div.chatbox-msgitem-rcv,
+[data-theme="dark"] .chatbox-msgitem-ai,
+[data-theme="dark"] div.chatbox-msgitem-ai {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+    text-align: left !important;
+    display: block !important;
+    width: fit-content !important;
+    max-width: 70% !important;
+    background-color: #64748b !important;
+    color: #f8fafc !important;
+    border: 1px solid #475569 !important;
+    border-radius: 12px !important;
+    padding: 10px 14px !important;
+    margin: 6px 0 !important;
+}
+
+/* Style initial greeting message same as AI responses */
+.chatbox-msgitem-rcv,
+span.chatbox-msgitem-rcv {
+    background-color: #e5e7eb !important;
+    color: #374151 !important;
+    border: 1px solid #d1d5db !important;
+    border-radius: 12px !important;
+    padding: 10px 14px !important;
+    margin: 6px 0 !important;
+    display: block !important;
+    width: fit-content !important;
+    max-width: 70% !important;
+}
+
+/* Dark mode for initial greeting */
+[data-theme="dark"] .chatbox-msgitem-rcv,
+[data-theme="dark"] span.chatbox-msgitem-rcv {
+    background-color: #64748b !important;
+    color: #f8fafc !important;
+    border: 1px solid #475569 !important;
+}
+
+[data-theme="dark"] .chatbox-msgitem-rcv,
+[data-theme="dark"] .chatbox-msgitem-rcv *,
+[data-theme="dark"] .chatbox-msgitem-ai,
+[data-theme="dark"] .chatbox-msgitem-ai * {
+    color: #f8fafc !important;
+    background-color: #64748b !important;
+}
+
+/* Ensure all chat text is visible */
+[data-theme="dark"] .chatbox {
+    background-color: var(--bg-secondary) !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+[data-theme="dark"] .chatbox * {
+    color: inherit !important;
+}
+
+/* Specific styling for message elements */
+[data-theme="dark"] .chatbox-msgitem-snd,
+[data-theme="dark"] .chatbox-msgitem-user {
+    background-color: #3b82f6 !important;
+    color: #f1f5f9 !important;
+    border: 2px solid #1e40af !important;
+    border-radius: 12px !important;
+    padding: 10px 14px !important;
+    margin: 6px 0 !important;
+    display: inline-block !important;
+    max-width: 80% !important;
+    word-wrap: break-word !important;
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.4) !important;
+}
+
+/* Force light text for user messages */
+[data-theme="dark"] .chatbox-msgitem-snd *,
+[data-theme="dark"] .chatbox-msgitem-user * {
+    color: #f1f5f9 !important;
+}
+
+[data-theme="dark"] .chatbox-msgitem-rcv,
+[data-theme="dark"] .chatbox-msgitem-ai {
+    background-color: #64748b !important;
+    color: white !important;
+    border: 1px solid #475569 !important;
+    border-radius: 12px !important;
+    padding: 10px 14px !important;
+    margin: 6px 0 !important;
+    display: inline-block !important;
+    max-width: 80% !important;
+    word-wrap: break-word !important;
+}
+
+/* Message container text */
+[data-theme="dark"] .message,
+[data-theme="dark"] .message * {
+    color: inherit !important;
+}
+
+/* AI message div styling */
+[data-theme="dark"] .message.Ai,
+[data-theme="dark"] .message.ai {
+    background-color: #60a5fa !important;
+    color: #1e293b !important;
+    padding: 8px 12px !important;
+    border-radius: 8px !important;
+    margin: 4px 0 !important;
+}
+
+[data-theme="dark"] .message.Ai *,
+[data-theme="dark"] .message.ai * {
+    color: #1e293b !important;
+}
+
+/* Footer styling */
+[data-theme="dark"] .footer {
+    background-color: var(--bg-secondary) !important;
+    border-top: 1px solid var(--border-color) !important;
+}
+
+[data-theme="dark"] #kt_footer {
+    background-color: var(--bg-secondary) !important;
+}
+
+[data-theme="dark"] .footer .container-xxl {
+    background-color: var(--bg-secondary) !important;
+}
+
+/* Footer text colors */
+[data-theme="dark"] .footer .text-dark {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .footer .text-gray-400 {
+    color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .footer .text-muted {
+    color: var(--text-secondary) !important;
+}
+
+/* Footer menu styling */
+[data-theme="dark"] .footer .menu {
+    background-color: inherit !important;
+}
+
+[data-theme="dark"] .footer .menu-gray-600 {
+    color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .footer .menu-item a {
+    color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .footer .menu-item a:hover,
+[data-theme="dark"] .footer .text-hover-chatbot:hover {
+    color: var(--accent-primary) !important;
+}
