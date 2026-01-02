@@ -1,0 +1,570 @@
+/* Dark Mode Styles - Complete and Clean */
+[data-theme="dark"] {
+    --bg-primary: #0f1419;
+    --bg-secondary: #1a1f29;
+    --bg-tertiary: #252b37;
+    --bg-quaternary: #2f3441;
+    --text-primary: #e6e6e6;
+    --text-secondary: #a0a6b8;
+    --text-muted: #6b7280;
+    --border-color: #374151;
+    --border-light: #4b5563;
+    --accent-primary: #3b82f6;
+    --accent-secondary: #1d4ed8;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --shadow: rgba(0, 0, 0, 0.5);
+}
+
+/* Body and main containers */
+[data-theme="dark"] body {
+    background-color: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .page {
+    background-color: var(--bg-primary) !important;
+}
+
+[data-theme="dark"] #kt_body {
+    background-color: var(--bg-primary) !important;
+}
+
+/* Content areas */
+[data-theme="dark"] .content {
+    background-color: var(--bg-primary) !important;
+}
+
+[data-theme="dark"] #kt_content {
+    background-color: var(--bg-primary) !important;
+}
+
+[data-theme="dark"] .container-xxl,
+[data-theme="dark"] .chatbot-container {
+    background-color: var(--bg-primary) !important;
+}
+
+[data-theme="dark"] #kt_content_container {
+    background-color: var(--bg-primary) !important;
+}
+
+/* Cards */
+[data-theme="dark"] .card {
+    background-color: var(--bg-secondary) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .card-body {
+    background-color: var(--bg-secondary) !important;
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .card-header {
+    background-color: var(--bg-tertiary) !important;
+    border-bottom: 1px solid var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .card-title {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .card-label {
+    color: var(--text-primary) !important;
+}
+
+/* Aside/Sidebar */
+[data-theme="dark"] .aside {
+    background-color: var(--bg-secondary) !important;
+    border-right: 1px solid var(--border-color) !important;
+}
+
+[data-theme="dark"] .aside-primary {
+    background-color: var(--bg-secondary) !important;
+}
+
+[data-theme="dark"] .aside-secondary {
+    background-color: var(--bg-tertiary) !important;
+}
+
+[data-theme="dark"] .aside-workspace {
+    background-color: var(--bg-tertiary) !important;
+}
+
+/* Headers and toolbars */
+[data-theme="dark"] .header {
+    background-color: var(--bg-secondary) !important;
+    border-bottom: 1px solid var(--border-color) !important;
+}
+
+[data-theme="dark"] .toolbar {
+    background-color: var(--bg-secondary) !important;
+    border-bottom: 1px solid var(--border-color) !important;
+}
+
+/* Forms and inputs */
+[data-theme="dark"] .form-control {
+    background-color: var(--bg-quaternary) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .form-control:focus {
+    background-color: var(--bg-quaternary) !important;
+    border-color: var(--accent-primary) !important;
+    color: var(--text-primary) !important;
+    box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.25) !important;
+}
+
+[data-theme="dark"] .form-control::placeholder {
+    color: var(--text-muted) !important;
+}
+
+/* Buttons */
+[data-theme="dark"] .btn {
+    border: 1px solid var(--border-color) !important;
+}
+
+[data-theme="dark"] .btn-primary {
+    background-color: var(--accent-primary) !important;
+    border-color: var(--accent-primary) !important;
+    color: white !important;
+}
+
+[data-theme="dark"] .btn-primary:hover {
+    background-color: var(--accent-secondary) !important;
+    border-color: var(--accent-secondary) !important;
+}
+
+[data-theme="dark"] .btn-secondary {
+    background-color: var(--bg-quaternary) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .btn-secondary:hover {
+    background-color: var(--bg-tertiary) !important;
+}
+
+/* Chat specific styles */
+[data-theme="dark"] .chatbox {
+    background-color: var(--bg-secondary) !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+[data-theme="dark"] .chatbox-messages {
+    background-color: var(--bg-primary) !important;
+}
+
+/* Chat history container */
+[data-theme="dark"] #chat-history-container {
+    background-color: var(--bg-tertiary) !important;
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] #chat-history-container .message {
+    margin-bottom: 8px !important;
+    padding: 8px !important;
+    border-radius: 5px !important;
+    font-size: 0.9rem !important;
+}
+
+/* Override light mode user class */
+[data-theme="dark"] .user,
+[data-theme="dark"] #chat-history-container .user,
+body[data-theme="dark"] .user,
+body[data-theme="dark"] #chat-history-container .user {
+    background-color: #1e40af !important;
+    color: #ffffff !important;
+    align-self: flex-end !important;
+}
+
+/* Override light mode Ai class */
+[data-theme="dark"] .Ai,
+[data-theme="dark"] #chat-history-container .Ai,
+body[data-theme="dark"] .Ai,
+body[data-theme="dark"] #chat-history-container .Ai {
+    background-color: #60a5fa !important;
+    color: #ffffff !important;
+    align-self: flex-start !important;
+}
+
+[data-theme="dark"] .user *,
+[data-theme="dark"] .Ai * {
+    color: #ffffff !important;
+}
+
+/* AI MESSAGE STYLING - Light Blue Background with White Text */
+[data-theme="dark"] .chatbox-msgitem-rcv {
+    background-color: #60a5fa !important;
+    color: #ffffff !important;
+    border: 1px solid #60a5fa !important;
+}
+
+/* [data-theme="dark"] .chatbox-msgitem-rcv *,
+[data-theme="dark"] .chatbox-msgitem-rcv p,
+[data-theme="dark"] .chatbox-msgitem-rcv span,
+[data-theme="dark"] .chatbox-msgitem-rcv div,
+[data-theme="dark"] .chatbox-msgitem-rcv li,
+[data-theme="dark"] .chatbox-msgitem-rcv strong {
+    color: #ffffff !important;
+} */
+
+/* Compact bullet list styling for AI messages */
+[data-theme="dark"] .chatbox-msgitem-rcv ul {
+    margin: 4px 0 !important;
+    padding-left: 20px !important;
+}
+
+[data-theme="dark"] .chatbox-msgitem-rcv li {
+    margin: 2px 0 !important;
+    line-height: 1.4 !important;
+    padding: 0 !important;
+}
+
+/* Table styling for AI messages in dark mode */
+[data-theme="dark"] .chatbox-msgitem-rcv table {
+    border-collapse: collapse !important;
+    width: 100% !important;
+    margin: 8px 0 !important;
+    background-color: #ffffff !important;
+    border: 1px solid #dee2e6 !important;
+}
+
+[data-theme="dark"] .chatbox-msgitem-rcv th,
+[data-theme="dark"] .chatbox-msgitem-rcv td {
+    border: 1px solid #dee2e6 !important;
+    padding: 8px !important;
+    color: #000000 !important;
+    text-align: left !important;
+    background-color: #ffffff !important;
+}
+
+[data-theme="dark"] .chatbox-msgitem-rcv th {
+    background-color: #f8f9fa !important;
+    font-weight: bold !important;
+    color: #000000 !important;
+}
+
+[data-theme="dark"] .chatbox-msgitem-rcv tr {
+    background-color: #ffffff !important;
+}
+
+[data-theme="dark"] .chatbox-msgitem-rcv table * {
+    color: #000000 !important;
+}
+
+/* USER MESSAGE STYLING - Dark Blue Background with White Text */
+[data-theme="dark"] .chatbox-msgitem-snd {
+    background: #1e40af !important;
+    background-color: #1e40af !important;
+    color: #ffffff !important;
+    border: 1px solid #1e40af !important;
+    padding: 8px !important;
+    margin: 4px 0 4px auto !important;
+    height: fit-content !important;
+    width: fit-content !important;
+    border-radius: 12px 0px 12px 12px !important;
+    display: block !important;
+    text-align: right !important;
+    max-width: 80% !important;
+    margin-left: auto !important;
+    float: right !important;
+    clear: both !important;
+}
+
+/* User message text elements */
+[data-theme="dark"] .chatbox-msgitem-snd *,
+[data-theme="dark"] .chatbox-msgitem-snd p,
+[data-theme="dark"] .chatbox-msgitem-snd span,
+[data-theme="dark"] .chatbox-msgitem-snd div {
+    color: #ffffff !important;
+}
+
+/* Microphone button */
+[data-theme="dark"] .btn-chatbox-audio {
+    background-color: var(--bg-quaternary) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+[data-theme="dark"] .btn-chatbox-audio:hover {
+    background-color: var(--bg-tertiary) !important;
+}
+
+/* Footer */
+[data-theme="dark"] .footer {
+    background-color: var(--bg-secondary) !important;
+    border-top: 1px solid var(--border-color) !important;
+}
+
+[data-theme="dark"] #kt_footer {
+    background-color: var(--bg-secondary) !important;
+}
+
+/* Text colors */
+[data-theme="dark"] .text-muted {
+    color: var(--text-muted) !important;
+}
+
+[data-theme="dark"] .text-dark {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .text-gray-600 {
+    color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .text-gray-800 {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .fw-bolder,
+[data-theme="dark"] .fw-bold {
+    color: var(--text-primary) !important;
+}
+
+/* Menus and dropdowns */
+[data-theme="dark"] .menu {
+    background-color: var(--bg-secondary) !important;
+    border: 1px solid var(--border-color) !important;
+    box-shadow: 0 4px 6px var(--shadow) !important;
+}
+
+[data-theme="dark"] .menu-item .menu-link {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .menu-item .menu-link:hover {
+    background-color: var(--bg-tertiary) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Modals */
+[data-theme="dark"] .modal-content {
+    background-color: var(--bg-secondary) !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+[data-theme="dark"] .modal-header {
+    background-color: var(--bg-tertiary) !important;
+    border-bottom: 1px solid var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .modal-body {
+    background-color: var(--bg-secondary) !important;
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .modal-footer {
+    background-color: var(--bg-tertiary) !important;
+    border-top: 1px solid var(--border-color) !important;
+}
+
+/* Alerts */
+[data-theme="dark"] .alert {
+    border: 1px solid var(--border-color) !important;
+}
+
+[data-theme="dark"] .alert-info {
+    background-color: rgba(59, 130, 246, 0.1) !important;
+    border-color: rgba(59, 130, 246, 0.3) !important;
+    color: #60a5fa !important;
+}
+
+[data-theme="dark"] .alert-danger {
+    background-color: rgba(239, 68, 68, 0.1) !important;
+    border-color: rgba(239, 68, 68, 0.3) !important;
+    color: #f87171 !important;
+}
+
+[data-theme="dark"] .alert-success {
+    background-color: rgba(16, 185, 129, 0.1) !important;
+    border-color: rgba(16, 185, 129, 0.3) !important;
+    color: #34d399 !important;
+}
+
+/* SVG Icons */
+[data-theme="dark"] .svg-icon {
+    fill: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .btn .svg-icon {
+    fill: currentColor !important;
+}
+
+/* Scrollbars */
+[data-theme="dark"] ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+    background: var(--bg-quaternary);
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+    background: var(--border-light);
+}
+
+/* Loading indicators */
+[data-theme="dark"] .spinner-border {
+    color: var(--accent-primary) !important;
+}
+
+/* [data-theme="dark"] .chatbox-loading {
+    background-color: var(--bg-tertiary) !important;
+} */
+
+/* Form switches */
+[data-theme="dark"] .form-check-input {
+    background-color: var(--bg-quaternary) !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+[data-theme="dark"] .form-check-input:checked {
+    background-color: var(--accent-primary) !important;
+    border-color: var(--accent-primary) !important;
+}
+
+[data-theme="dark"] .form-check-label {
+    color: var(--text-secondary) !important;
+}
+
+/* Badges */
+[data-theme="dark"] .badge {
+    background-color: var(--bg-quaternary) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+/* Symbols and avatars */
+[data-theme="dark"] .symbol {
+    border: 1px solid var(--border-color) !important;
+}
+
+/* Separators */
+[data-theme="dark"] .separator {
+    border-color: var(--border-color) !important;
+}
+
+/* Background overrides */
+[data-theme="dark"] .bg-white {
+    background-color: var(--bg-secondary) !important;
+}
+
+[data-theme="dark"] .bg-light {
+    background-color: var(--bg-tertiary) !important;
+}
+
+[data-theme="dark"] .bg-gray-100 {
+    background-color: var(--bg-tertiary) !important;
+}
+
+/* Border overrides */
+[data-theme="dark"] .border {
+    border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .border-top,
+[data-theme="dark"] .border-bottom,
+[data-theme="dark"] .border-left,
+[data-theme="dark"] .border-right {
+    border-color: var(--border-color) !important;
+}
+
+/* General text elements - excluding chat messages */
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6,
+[data-theme="dark"] label {
+    color: var(--text-primary) !important;
+}
+
+/* FORCE USER MESSAGE STYLING - MAXIMUM SPECIFICITY */
+body[data-theme="dark"] .chatbox-messages .chatbox-msgitem-snd,
+body[data-theme="dark"] .card-body .chatbox-messages .chatbox-msgitem-snd,
+[data-theme="dark"] .chatbox-msgitem-snd {
+    background: #1e40af !important;
+    background-color: #1e40af !important;
+    color: #ffffff !important;
+    border: 1px solid #1e40af !important;
+}
+
+body[data-theme="dark"] .chatbox-messages .chatbox-msgitem-snd *,
+body[data-theme="dark"] .card-body .chatbox-messages .chatbox-msgitem-snd *,
+[data-theme="dark"] .chatbox-msgitem-snd * {
+    color: #ffffff !important;
+}
+
+
+/* CRITICAL: Chat History Dark Mode Override - MUST BE LAST */
+body[data-theme="dark"] #chat-history-container .user,
+body[data-theme="dark"] .aside-workspace .user,
+html[data-theme="dark"] #chat-history-container .user,
+html body[data-theme="dark"] #chat-history-container .user {
+    background-color: #1e40af !important;
+    color: #ffffff !important;
+}
+
+body[data-theme="dark"] #chat-history-container .Ai,
+body[data-theme="dark"] .aside-workspace .Ai,
+html[data-theme="dark"] #chat-history-container .Ai,
+html body[data-theme="dark"] #chat-history-container .Ai {
+    background-color: #3b7fd3 !important;
+    color: #ffffff !important;
+}
+
+body[data-theme="dark"] .user strong,
+body[data-theme="dark"] .Ai strong,
+body[data-theme="dark"] .user small,
+body[data-theme="dark"] .Ai small {
+    color: #ffffff !important;
+}
+
+
+/* New Chat Button - Blue in Dark Mode */
+[data-theme="dark"] .btn-newchat,
+[data-theme="dark"] .btn-new-chat,
+[data-theme="dark"] #kt_toolbar_primary_button {
+    background-color: #3b82f6 !important;
+    border-color: #3b82f6 !important;
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .btn-newchat:hover,
+[data-theme="dark"] .btn-new-chat:hover,
+[data-theme="dark"] #kt_toolbar_primary_button:hover {
+    background-color: #2563eb !important;
+    border-color: #2563eb !important;
+    color: #ffffff !important;
+}
+
+
+/* Toggle left button - blue color in dark mode */
+[data-theme="dark"] #kt_aside_toggle,
+[data-theme="dark"] .btn-toggle-left,
+[data-theme="dark"] .aside-toggle {
+    background-color: #3b82f6 !important;
+    color: #ffffff !important;
+    border-color: #3b82f6 !important;
+}
+
+[data-theme="dark"] #kt_aside_toggle:hover,
+[data-theme="dark"] .btn-toggle-left:hover,
+[data-theme="dark"] .aside-toggle:hover {
+    background-color: #2563eb !important;
+    border-color: #2563eb !important;
+}
