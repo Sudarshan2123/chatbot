@@ -1,0 +1,628 @@
+
+const API_BASE_URL = 'http://localhost:5050';
+// const API_BASE_URL = 'https://chat-backend-app-446976656513.us-central1.run.app';
+const CONFIG = {
+    API_BASE_URL: 'https://misdashboard.mactech.net.in/botapi',
+    //API_BASE_URL: 'http://localhost:5050',
+    OTP_LENGTH: 4,
+    TYPING_DELAY: 1000
+};
+class AuthService {
+    static state = {
+        isLoggedIn: false,
+        accessToken: null
+    };
+
+    static encryptCredentials(employee_code, firm_id) {
+        // In a real application, use proper encryption libraries
+        const shift = 5;
+        
+        function encryptString(str, shift) {
+            // Using browser's btoa() instead of Buffer
+            return btoa(str)
+                .split('')
+                .map(char => {
+                    const code = char.charCodeAt(0);
+                    return String.fromCharCode(code + shift);
+                })
+                .join('');
+        }
+        
+        return {
+            employee_code: encryptString(employee_code, shift),
+            firm_id: encryptString(firm_id, shift)
+        };
+    }
+
+    static async login(employee_code, firm_id) {
+        debugger;
+        try {
+            const encrypted = this.encryptCredentials(employee_code, firm_id);
+            const response = await fetch(`${CONFIG.API_BASE_URL}/login`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ 
+                    employee_code: encrypted.employee_code, 
+                    firm_id: encrypted.firm_id 
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const authHeader = response.headers.get('Authorization');
+            const token = authHeader?.startsWith('Bearer ') ? authHeader.substring(7) : null;
+            const data = await response.json();
+
+            if (data.status === "success" && token) {
+                this.state.isLoggedIn = true;
+                this.state.accessToken = token;
+                return { data, token };
+            }
+            
+            throw new Error('Login failed: Invalid response format');
+        } catch (error) {
+            console.error('Authentication error:', error);
+            throw new Error('Login failed: Please check your credentials and try again.');
+        }
+    }
+
+    static validateCredentials(username, password) {
+        return Boolean(username?.trim() && password?.trim());
+    }
+}
+class Chatbox {
+    
+    constructor() {
+        this.args = {
+            openButton: document.querySelector('.chatbox__button'),
+            chatBox: document.querySelector('.chatbox__support'),
+            sendButton: document.querySelector('.send__button'),
+            refreshButton: document.querySelector('.refresh__button'),
+            voiceButton: document.querySelector('.voice__button'),
+            languageDropdown: document.querySelector('.language__dropdown'),
+            spinner: document.querySelector('.loading-spinner'),
+            loading_spinner: document.querySelector('.loader')
+        }
+
+        this.state = {
+            isLoggedIn: false,
+            access_token: null,
+            employee_code:'100744',
+            firm_id: '10001',
+            isRecording: false,
+            language: 'en-US' // Set default language to English
+        };
+        this.messages = [];
+
+       // this.login();
+    }
+
+    
+    disableButtons() {
+        this.args.voiceButton.disabled = true;
+        this.args.languageDropdown.disabled = true;
+        this.args.refreshButton.disabled = true;
+        
+        // Add CSS styling to indicate buttons are disabled (optional)
+        this.args.voiceButton.classList.add('disabled');
+        this.args.languageDropdown.classList.add('disabled');
+        this.args.refreshButton.classList.add('disabled');
+    
+    }
+    
+    enableButtons() {
+        this.args.voiceButton.disabled = false;
+        this.args.languageDropdown.disabled = false;
+        this.args.refreshButton.disabled = false;
+    
+
+    
+        // Remove CSS styling for enabled state
+        this.args.voiceButton.classList.remove('disabled');
+        this.args.languageDropdown.classList.remove('disabled');
+        this.args.refreshButton.classList.remove('disabled');
+    }
+    validateToken() {
+        debugger;
+        if (!this.state.access_token) {
+            this.state.isBlocked = true;
+            this.blockChatbox();
+            console.error("Token validation failed. Chatbox is blocked.");
+ 
+            return false;
+        }
+        return true;
+    }
+    blockChatbox() {
+        const { chatBox, sendButton, refreshButton, voiceButton, languageDropdown } = this.args;
+    
+        // Disable all chatbox buttons
+        chatBox.querySelector('input').disabled = true;
+        sendButton.disabled = true;
+        refreshButton.disabled = true;
+        voiceButton.disabled = true;
+        languageDropdown.disabled = true;
+        this.args.spinner.classList.remove('visible');
+        // Optionally, show a message indicating the chatbox is blocked
+        let blockMessage = { name: "Mia", message: "Session expired. Please refresh again to continue." };
+        this.messages.push(blockMessage);
+        this.updateChatText(chatBox);
+    }
+    
+    unblockChatbox() {
+        const { chatBox, sendButton, refreshButton, voiceButton, languageDropdown } = this.args;
+    
+        // Enable all chatbox buttons
+        chatBox.querySelector('input').disabled = false;
+        sendButton.disabled = false;
+        refreshButton.disabled = false;
+        voiceButton.disabled = false;
+        languageDropdown.disabled = false;
+    }
+    async login() {
+        debugger;
+        // const login_url='${API_BASE_URL}/login'
+        
+        
+        try {
+            // this.args.loading_spinner.style.display = 'block';
+            const response = await AuthService.login(this.state.employee_code, this.state.firm_id);
+            // Extract the token from headers
+            let token = response.token;
+            const data = response.data;
+            
+            if (data.status === "success") {
+                this.state.isLoggedIn = true;
+                this.state.access_token = token;
+                let successMessage = { name: "Macom Ai", message: "Hi. My name is Macom Ai. How can I help you?" };
+                this.messages.push(successMessage);
+                const chatBox = this.args.chatBox;
+                this.updateChatText(chatBox);
+                console.log('Login successful');
+            } else {
+                let failedMessage = { name: "Mia", message: "sorry you can not chat with mia !" };
+                this.messages.push(failedMessage);
+                const chatBox = this.args.chatBox;
+                this.updateChatText(chatBox);
+                console.error('Login failed');
+                alert("Login failed: Please check your employee code and firm ID.");
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            let failedMessage = { name: "Macom Ai", message: "sorry you can not chat with mia right now !" };
+            this.messages.push(failedMessage);
+            const chatBox = this.args.chatBox;
+            this.updateChatText(chatBox);
+            console.error('Login failed');
+        } finally {
+            // Hide the loader after the API call completes
+            this.args.loading_spinner.style.display = 'none';
+        }
+    }
+
+
+    async display() {
+        const { openButton, chatBox, sendButton, refreshButton, voiceButton, languageDropdown } = this.args;
+    
+        openButton.addEventListener('click', async () => {
+            this.toggleState(chatBox);
+            if (!this.state.isLoggedIn) {
+                try {
+                    await this.login()
+                    // this.login(); // Call login when authentication is successful
+                } catch (error) {
+                    console.error('Login failed:', error);
+                    // Handle login failure
+                }
+            }
+            
+        });
+    
+        sendButton.addEventListener('click', () => this.onSendButton(chatBox));
+    
+        refreshButton.addEventListener('click', () => this.onRefreshButton(chatBox));
+    
+        voiceButton.addEventListener('click', () => this.toggleVoiceRecognition(chatBox));
+    
+        languageDropdown.addEventListener('change', (event) => this.changeLanguage(event));
+    
+        const inputNode = chatBox.querySelector('input');
+        inputNode.addEventListener("keyup", ({ key }) => {
+            if (key === "Enter") {
+                this.onSendButton(chatBox);
+            }
+        });
+    }
+    toggleState(chatbox) {
+        this.state.isActive = !this.state.isActive;
+
+        if (this.state.isActive) {
+            chatbox.classList.add('chatbox--active');
+        } else {
+            chatbox.classList.remove('chatbox--active');
+        }
+    }
+
+    onSendButton(chatbox) {
+        debugger;
+        if (!this.state.isLoggedIn) {
+            console.error('User is not logged in');
+            return;
+        }
+        var textField = chatbox.querySelector('input');
+        let text1 = textField.value;
+        if (text1 === "") {
+            return;
+        }
+        textField.disabled = true;
+        this.disableButtons();
+
+        // function sanitizeInput(input) {
+        //     return DOMPurify.sanitize(input);
+        // }
+        function sanitizeInput(input) {
+            const div = document.createElement('div');
+            div.textContent = input;
+            return div.innerHTML;
+        }
+
+        let sanitizedText = sanitizeInput(text1);
+
+        let msg1 = { name: "User", message: sanitizedText };
+        this.messages.push(msg1);
+        this.updateChatText(chatbox);
+        textField.value = '';
+        this.args.sendButton.classList.add('hidden');
+        this.args.spinner.classList.add('visible');
+        debugger;
+        const chat_apiurl_local=`${CONFIG.API_BASE_URL}/chat`
+        fetch(chat_apiurl_local, {
+            method: 'POST',
+            body: JSON.stringify({
+                // access_token: encodeURIComponent(this.state.access_token),
+                input: encodeURIComponent(sanitizedText),
+                lang: encodeURIComponent(this.state.language.split('-')[0])
+            }),
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${this.state.access_token}` // Ensure accessToken is correctly set
+            },
+        })
+        .then(response => {
+            // Extract the token from headers
+            let token = null;
+            const authHeader = response.headers.get('Authorization');
+            if (authHeader && authHeader.startsWith('Bearer ') ) {
+                token = authHeader.substring(7); // Remove 'Bearer ' from the start
+                }
+            this.state.access_token = token;
+            if (!this.validateToken()) {
+                return; // Stop execution if token is invalid
+            }
+    
+            return response.json().then(data => ({ data})); 
+            
+        })
+        
+        // .then(r => r.json())
+        .then(({ data}) =>{
+            const parser = new DOMParser();
+            const decodedAnswer = parser.parseFromString(data.answer, 'text/html').body.textContent;
+            let msg2 = { name: "Mia", message: decodedAnswer };
+            this.messages.push(msg2);
+            this.updateChatText(chatbox);
+        
+
+        }).catch((error) => {
+            console.error('Error:', error);
+            this.updateChatText(chatbox);
+        }).finally(() => {
+            this.enableButtons();
+            textField.disabled = false;
+            this.args.spinner.classList.remove('visible');
+            this.args.sendButton.classList.remove('hidden');
+        });
+        
+    }
+
+    onRefreshButton(chatbox) {
+        if (!this.state.isLoggedIn) {
+            console.error('User is not logged in');
+            return;
+        }
+
+        this.args.refreshButton.classList.add('hidden');
+        this.args.spinner.classList.add('visible');
+
+        const clear_history_url=`${API_BASE_URL}/clear_history`
+        fetch(clear_history_url, {
+            method: 'POST',
+            body: JSON.stringify({
+                access_token: encodeURIComponent(this.state.access_token),
+            }),
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${this.state.access_token}`
+            },
+        })
+        .then(response => {
+            // Extract the token from headers
+            let token = null;
+            const authHeader = response.headers.get('Authorization');
+            if (authHeader && authHeader.startsWith('Bearer ') ) {
+                token = authHeader.substring(7); // Remove 'Bearer ' from the start
+              }
+            this.state.access_token = token
+            if (!this.validateToken()) {
+                return; // Stop execution if token is invalid
+            }
+            return response.json().then(data => ({data})); 
+        })
+        .then(({data}) =>{
+            if (data.status === 'success') {
+                this.messages = [];
+                this.updateChatText(chatbox);
+                console.log('Chat history cleared');
+            } else {
+                console.error('Failed to clear chat history');
+            }
+        }).catch((error) => {
+            console.error('Error:', error);
+        }).finally(() => {
+            this.args.spinner.classList.remove('visible');
+            this.args.refreshButton.classList.remove('hidden');
+        });
+    }
+
+    toggleVoiceRecognition(chatbox) {
+        if (!this.state.isLoggedIn) {
+            console.error('User is not logged in');
+            return;
+        }
+
+        if (!('webkitSpeechRecognition' in window)) {
+            console.error('Speech recognition not supported in this browser');
+            return;
+        }
+
+        if (this.state.isRecording) {
+            this.stopVoiceRecognition();
+        } else {
+            this.startVoiceRecognition(chatbox);
+        }
+    }
+
+    startVoiceRecognition(chatbox) {
+        this.recognition = new webkitSpeechRecognition();
+        this.recognition.lang = this.state.language;
+        this.recognition.interimResults = false;
+        this.recognition.maxAlternatives = 1;
+
+        this.recognition.start();
+        this.state.isRecording = true;
+        this.args.voiceButton.classList.add('recording');
+
+        this.recognition.onresult = (event) => {
+            const speechResult = event.results[0][0].transcript;
+            console.log('Result received: ' + speechResult); 
+            let msg1 = { name: "User", message: speechResult };
+            this.messages.push(msg1);
+            this.updateChatText(chatbox);
+
+            this.args.spinner.classList.add('visible'); 
+            console.log('Translated to English: ' + translatedText); 
+            debugger;
+            const chaturl=`${API_BASE_URL}/chat`
+            fetch(chaturl, {
+                method: 'POST',
+                body: JSON.stringify({
+                    // access_token: encodeURIComponent(this.state.access_token),
+                    input: encodeURIComponent(speechResult),
+                    lang: encodeURIComponent(this.state.language.split('-')[0])
+                }),
+                mode: 'cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${this.state.access_token}`
+                },
+            })
+            .then(response => {
+                // Extract the token from headers
+                let token = null;
+                const authHeader = response.headers.get('Authorization');
+                if (authHeader && authHeader.startsWith('Bearer ') ) {
+                    token = authHeader.substring(7); // Remove 'Bearer ' from the start
+                    }
+                this.state.access_token = token
+                if (!this.validateToken()) {
+                    return; // Stop execution if token is invalid
+                }
+                return response.json().then(data => ({data})); 
+            })
+            .then(({data})=> {
+                const parser = new DOMParser();
+                const decodedAnswer = parser.parseFromString(data.answer, 'text/html').body.textContent; 
+                let msg2 = { name: "Mia", message: decodedAnswer };
+                this.messages.push(msg2);
+                this.updateChatText(chatbox);
+
+            }).catch((error) => {
+                console.error('Error:', error);
+                this.updateChatText(chatbox);
+            }).finally(() => {
+                this.args.spinner.classList.remove('visible'); 
+                this.args.sendButton.classList.remove('hidden');
+            });
+
+        };
+
+        this.recognition.onerror = (event) => {
+            console.error('Error occurred in recognition: ' + event.error);
+        };
+
+        this.recognition.onend = () => {
+            this.stopVoiceRecognition();
+        };
+    }
+
+    stopVoiceRecognition() {
+        if (this.recognition) {
+            this.recognition.stop();
+            this.state.isRecording = false;
+            this.args.voiceButton.classList.remove('recording');
+        }
+    }
+
+    changeLanguage(event) {
+        const languageMap = {
+            en: 'en-US',
+            hi: 'hi-IN',
+            bn: 'bn-IN',
+            te: 'te-IN',
+            mr: 'mr-IN',
+            ta: 'ta-IN',
+            gu: 'gu-IN',
+            kn: 'kn-IN',
+            ml: 'ml-IN',
+            pa: 'pa-IN',
+            ur: 'ur-IN',
+           
+        };
+        const selectedLanguage = event.target.value;
+        this.state.language = languageMap[selectedLanguage] || 'en-US'; // Use appropriate language codes
+        console.log('Language changed to:', this.state.language);
+    }
+
+    
+    toggleAudioPlayback() {
+        if (this.audio) {
+            if (this.audio.paused) {
+                this.audio.play();
+            } else {
+                this.audio.pause();
+            }
+        }
+    }
+    textToSpeech(text) {
+        debugger;
+        //const url = 'https://vapt-mia-app-kqp2s4ffna-uc.a.run.app/text-to-speech'; // Ensure this matches your FastAPI server address
+        const url=`${API_BASE_URL}/text-to-speech`
+        const requestBody = {
+            text: encodeURIComponent(text),
+            language:  encodeURIComponent(this.state.language),
+            // access_token: encodeURIComponent(this.state.access_token)
+        };
+
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${this.state.access_token}`
+            },
+            body: JSON.stringify(requestBody)
+        })
+        .then(response => {
+            // Extract the token from headers
+            let token = null;
+            const authHeader = response.headers.get('Authorization');
+            if (authHeader && authHeader.startsWith('Bearer ') ) {
+                token = authHeader.substring(7); // Remove 'Bearer ' from the start
+              }
+            this.state.access_token = token
+            if (!this.validateToken()) {
+                return; // Stop execution if token is invalid
+            }
+            return response.json().then(data => ({data})); 
+        })
+        // .then(response => response.json())
+        .then(({data}) =>{
+            if (data.audioContent) {
+
+                if (this.audio) {
+                    this.audio.pause();
+                }
+                this.audio = new Audio("data:audio/mp3;base64," + data.audioContent);
+                this.audio.addEventListener('ended', () => {
+                    this.audio = null;
+                    this.currentMessage = null;
+                });
+                this.audio.play();
+            } else {
+                console.error('Error: ', data.detail);
+            }
+        })
+        .catch(error => {
+            console.error('Fetch error: ', error);
+        });
+    
+    }
+
+    updateChatText(chatbox) {
+        var html = '';
+        this.messages.slice().reverse().forEach((item) => {
+            // Sanitize the message to prevent HTML injection
+          
+            function sanitizeInput(input) {
+                const div = document.createElement('div');
+                div.textContent = input;
+                return div.innerHTML;
+            }
+            //item.message
+           
+            let sanitizedText = sanitizeInput(item.message);
+            // const sanitizedMessage = DOMPurify.sanitize(sanitizedText);
+    
+            
+            if (item.name === "Mia") {
+                // const formattedMessage = sanitizedMessage.replace(/[*•]/g, '');
+                const safeMessage = encodeURIComponent(sanitizedText).replace(/'/g, "\\'");
+    
+                html += `<div class="messages__item messages__item--visitor">
+                            ${marked.parse(sanitizedText)}
+                            <link rel="stylesheet" href="../static/style.css">
+                            <button class="audio-icon" style="border: none !important; cursor: pointer;" data-message="${safeMessage}">
+                                <img title="Listen" class="audio-btn-img" src="../static/images/audio.svg" alt="Audio Icon" />
+                            </button>
+                         </div>`;
+            } else {
+                html += `<div class="messages__item messages__item--operator">
+                            ${marked.parse(sanitizedText)}
+                         </div>`;
+            }
+        });
+    
+        const chatmessage = chatbox.querySelector('.chatbox__messages');
+        chatmessage.innerHTML = html;
+    
+        // Attach event listener to buttons
+        chatbox.querySelectorAll('.audio-icon').forEach(button => {
+            button.addEventListener('click', (event) => {
+                const message = decodeURIComponent(event.currentTarget.getAttribute('data-message'));
+                if (this.audio) {
+                    // If the current audio is playing the same message, pause it
+                    if (this.currentMessage === message) {
+                        this.toggleAudioPlayback();
+                        return;
+                    }
+                    
+                    // If a different audio is playing, stop it first
+                    this.audio.pause();
+                }
+    
+                this.currentMessage = message;
+                this.textToSpeech(message);
+            });
+        });
+    }
+    
+    
+}
+
+const chatbox = new Chatbox();
+chatbox.display();

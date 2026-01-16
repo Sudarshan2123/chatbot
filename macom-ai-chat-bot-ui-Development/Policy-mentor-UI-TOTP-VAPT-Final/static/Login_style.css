@@ -1,0 +1,92 @@
+html {
+  background-image: url(./bg.jpeg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+body {
+  background: transparent;
+  min-height: 100vh;
+  backdrop-filter: brightness(0.5);
+}
+
+.btn {
+  border-color: #e95a03;
+}
+
+a {
+  color: #e95a03;
+  text-decoration: none;
+}
+
+.btn-chatbot-login {
+  background-color: #e95a03 !important;
+  border: 1px solid #fff !important;
+  color: #ffffff !important;
+  -webkit-box-shadow: 0 3px 5px 0 rgba(47, 85, 212, 0.3);
+  box-shadow: 0 3px 5px 0 rgba(47, 85, 212, 0.3);
+}
+
+.btn-chatbot-login:hover, 
+.btn-chatbot-login:focus, 
+.btn-chatbot-login:active, 
+.btn-chatbot-login.active, 
+.btn-chatbot-login.focus {
+  background-color: #f38a10 !important;
+  border-color: #fff !important;
+  color: #ffffff !important;
+}
+
+.chatbot-logo {
+  width: 190px !important;
+}
+
+.intro-text {
+  color: hsl(0, 0%, 100%);
+  opacity: 0.7;
+}
+
+.footer-text {
+  font-size: smaller;
+  color: white !important;
+}
+
+.footer-link {
+  color: white;
+}
+
+.login-footer {
+  color: white;
+  font-size: smaller;
+}
+
+/* Additional styles for elements that had inline styles */
+.background-radial-gradient {
+  overflow: hidden;
+}
+
+.container {
+  padding: 1.25rem 1rem;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+.card-body {
+  padding: 1.25rem 1rem;
+}
+
+@media (min-width: 768px) {
+  .card-body {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}

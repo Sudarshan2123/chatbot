@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="../static/style.css">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+</head>
+<body>
+<div class="container chatbox-container">
+    <div class="chatbox">
+        <div class="chatbox__support">
+            <div class="chatbox__header">
+                <div class="chatbox__image--header">
+                    <img src="../static/images/bot-icon.svg" alt="image">
+                </div>
+                <div class="chatbox__content--header">
+                    <h4 class="chatbox__heading--header">Macom  AI</h4>
+                    <p class="chatbox__description--header">Hi.  How can I help you?</p>
+                </div>
+            </div>
+            <div class="">
+                <div class="loader"></div>
+                <div class="chatbox__messages"></div>
+            </div>
+            <div class="chatbox__footer">
+                <input type="text" placeholder="Ask me anything...!">
+                <button class="chatbox__send--footer send__button"><img alt="send" title="Send Message" class="send-btn-img" src="../static/images/send.svg"/></button>
+                <div class="loading-spinner"></div> <!-- Spinner for both send and refresh actions -->
+                <button class="chatbox__refresh--footer refresh__button" ><img alt="refresh" title="Refresh Page" class="refresh-btn-img" src="../static/images/refresh.svg"/></button>
+                <button class="chatbox__voice--footer voice__button" ><img alt="voice" title="Record Voice" class="voice-btn-img" src="../static/images/voice.svg"/></button>
+                <select class="chatbox__language--footer language__dropdown">
+                    <option value="en">English(En)</option>
+                    <option value="hi">हिन्दी (Hi)</option>
+                    <option value="bn">বাংলা (Bn)</option>
+                    <option value="te">తెలుగు (Te)</option>
+                    <option value="mr">मराठी (Mr)</option>
+                    <option value="ta">தமிழ் (Ta)</option>
+                    <option value="gu">ગુજરાતી (Gu)</option>
+                    <option value="kn">ಕನ್ನಡ (Kn)</option>
+                    <option value="ml">മലയാളം (Ml)</option>
+                    <option value="pa">ਪੰਜਾਬੀ (Pa)</option>
+                    <option value="ur">اردو (Ur)</option>
+                </select>
+                <!-- <div class="loading-spinner"></div> Spinner for both send and refresh actions -->
+            </div>
+        </div>
+        <div class="chatbox__button">
+            <button><img alt="chat-start" title="Ask Mia" class="Chatbot-btn-img" src="../static/images/chatbox-icon.svg"></button>
+        </div>
+    </div>
+</div>
+<script nonce="{{ nonce }}">
+    // Your inline script here
+</script>
+<script nonce="{{ nonce }}" src="../static/marked.min.js"></script>
+<script nonce="{{ nonce }}">var dynamicScript = document.createElement('script');
+ dynamicScript.src ="../static/app.js";document.body.appendChild(dynamicScript);</script>
+</body>
+<!-- <link rel="stylesheet" href="../static/fonts.css"> -->
+</html>
