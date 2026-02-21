@@ -1,0 +1,10 @@
+langchain_community
+langchain_chroma
+chromadb
+cryptography
+python-box
+ensure
+pytz
+pyjwt
+langchain_mongodb
+langchain_google_vertexai

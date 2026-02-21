@@ -1,0 +1,16 @@
+langchain_community
+langchain_chroma
+chromadb
+cryptography
+python-box
+ensure
+pytz
+pandas
+pyjwt
+redis
+langchain_mongodb
+langchain_google_vertexai
+sqlalchemy
+psycopg2-binary
+fastapi
+-e .

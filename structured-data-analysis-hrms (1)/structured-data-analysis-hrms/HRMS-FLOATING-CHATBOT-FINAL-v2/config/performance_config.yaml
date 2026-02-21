@@ -1,0 +1,55 @@
+# SQL Agent Performance Configuration
+
+database:
+  # Connection Pool Settings
+  pool_size: 20              # Increased from default 10
+  max_overflow: 40           # Increased from default 20
+  pool_timeout: 30           # Connection timeout in seconds
+  pool_recycle: 1800         # Recycle connections after 30 minutes
+  pool_pre_ping: true        # Verify connections before use
+  
+  # Query Optimization
+  query_timeout: 60          # Max query execution time (seconds)
+  max_rows_per_query: 10000  # Limit result set size
+  use_query_hints: true      # Enable Oracle optimizer hints
+
+redis:
+  # Cache Settings
+  table_cache_ttl: 3600      # Table data cache (1 hour)
+  query_cache_ttl: 300       # Query result cache (5 minutes)
+  metadata_cache_ttl: 3600   # Metadata cache (1 hour)
+  max_cache_size_mb: 512     # Max cache size per table
+  
+  # Connection Pool
+  connection_pool_size: 10
+  socket_timeout: 5
+  socket_connect_timeout: 5
+
+sql_agent:
+  # Agent Configuration
+  max_iterations: 10         # Limit agent reasoning steps
+  max_execution_time: 60     # Total agent timeout (seconds)
+  verbose: false             # Disable verbose logging for performance
+  
+  # LLM Settings
+  temperature: 0.0           # Deterministic responses
+  max_output_tokens: 2048    # Reduced from 4096
+  max_retries: 2
+  request_timeout: 30
+
+preload:
+  # Tables to preload on startup (add your frequently used tables)
+  hot_tables: []
+  # Example:
+  # - employee_master
+  # - department_mst
+  
+  warm_tables: []
+  # Example:
+  # - designation_master
+  # - location_master
+
+monitoring:
+  enable_performance_tracking: true
+  log_slow_queries: true
+  slow_query_threshold: 5.0  # Log queries taking > 5 seconds

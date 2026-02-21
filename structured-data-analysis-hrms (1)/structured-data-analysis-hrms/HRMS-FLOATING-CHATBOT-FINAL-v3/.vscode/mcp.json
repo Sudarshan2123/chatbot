@@ -1,0 +1,9 @@
+{
+	"servers": {
+		"Docs by LangChain": {
+			"url": "https://langchain-5e9cc07a.mintlify.app/mcp",
+			"type": "http"
+		}
+	},
+	"inputs": []
+}
